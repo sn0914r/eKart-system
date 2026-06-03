@@ -39,52 +39,69 @@
       <!-- Hero Section -->
       <header class="hero-band">
         <h1 class="display-xl">eKart</h1>
-        <div class="display-md mb-lg" style="color: var(--body-strong)">
-          Full-Stack Ecommerce Platform
+        <div class="display-md mb-xl" style="color: var(--body-strong)">
+          Full-Stack Ecommerce Ecosystem
         </div>
-        <p class="body-lg">
-          A complete ecommerce system featuring a customer storefront, admin
-          dashboard, secure payments, inventory management, and order
-          processing.
-        </p>
-        <p class="body-md mb-2xl">
-          Built with React, Node.js, Express, MongoDB, Razorpay, and Cloudinary.
-        </p>
-        <div class="flex gap-md" style="flex-wrap: wrap">
+        
+        <div class="mb-2xl flex gap-md items-center code" style="color: var(--mute); flex-wrap: wrap;">
+          <span>Customer Store</span>
+          <span style="color: var(--hairline)">•</span>
+          <span>Admin Dashboard</span>
+          <span style="color: var(--hairline)">•</span>
+          <span>Backend API</span>
+        </div>
+
+        <div class="flex gap-md mb-md" style="flex-wrap: wrap">
           <a
             href="https://ekart-frontend.pages.dev/auth/login?email=user123@gmail.com&password=user123"
             target="_blank"
             class="button-primary"
-            ><i class="bi bi-cart3" style="margin-right: 8px"></i> Store</a
+            ><i class="bi bi-cart3" style="margin-right: 8px"></i> Open Customer Store</a
           >
           <a
             href="https://ekart-admin-dashboard.pages.dev/auth/login?email=admin123@gmail.com&password=admin123"
             target="_blank"
             class="button-secondary-ghost"
-            ><i class="bi bi-gear" style="margin-right: 8px"></i> Admin Panel</a
+            ><i class="bi bi-gear" style="margin-right: 8px"></i> Open Admin Panel</a
           >
           <a
-            href="https://github.com/sn0914r/eKart-system"
+            href="https://ekart-backend-9y0c.onrender.com/health"
             target="_blank"
             class="button-secondary-ghost"
-            ><i class="bi bi-github" style="margin-right: 8px"></i> GitHub</a
+            ><i class="bi bi-link-45deg" style="margin-right: 8px"></i> Backend API</a
           >
         </div>
-        <div class="mt-3xl flex gap-md items-center code" style="color: var(--mute); flex-wrap: wrap;">
-          <span>3 Applications</span>
-          <span style="color: var(--hairline)">|</span>
-          <span>2 Live Deployments</span>
-          <span style="color: var(--hairline)">|</span>
-          <span>JWT Authentication</span>
-          <span style="color: var(--hairline)">|</span>
-          <span>Razorpay Payments</span>
-          <span style="color: var(--hairline)">|</span>
-          <span>RBAC</span>
+        
+        <div class="flex gap-md mb-3xl" style="flex-wrap: wrap">
+          <a
+            href="https://github.com/sn0914r/ekart-frontend"
+            target="_blank"
+            class="button-secondary-ghost"
+            ><i class="bi bi-github" style="margin-right: 8px"></i> Frontend Repo</a
+          >
+          <a
+            href="https://github.com/sn0914r/ekart-backend"
+            target="_blank"
+            class="button-secondary-ghost"
+            ><i class="bi bi-github" style="margin-right: 8px"></i> Backend Repo</a
+          >
+          <a
+            href="https://github.com/sn0914r/ekart-admin-panel"
+            target="_blank"
+            class="button-secondary-ghost"
+            ><i class="bi bi-github" style="margin-right: 8px"></i> Admin Repo</a
+          >
+        </div>
+
+        <div class="mt-xl">
+          <a href="#about" class="body-md flex items-center" style="color: var(--mute); transition: color 0.2s; display: inline-flex;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--mute)'">
+            <i class="bi bi-arrow-down" style="margin-right: 8px;"></i> Learn More About The Project
+          </a>
         </div>
       </header>
 
       <!-- About eKart -->
-      <section class="section">
+      <section class="section" id="about">
         <h2 class="display-md mb-2xl">About eKart</h2>
         <p class="body-lg mb-xl">
           eKart is a full-stack ecommerce platform built as three independent
@@ -111,6 +128,171 @@
               Handles authentication, payments, business logic, database
               operations, and third-party integrations.
             </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Project Links -->
+      <section class="section">
+        <h2 class="display-md mb-2xl">Project Links</h2>
+        <div class="grid grid-2">
+          <div class="card-content">
+            <h3 class="body-md-strong mb-md">Live Applications</h3>
+            <div class="flex flex-col gap-sm">
+              <a
+                href="https://ekart-frontend.pages.dev/auth/login?email=user123@gmail.com&password=user123"
+                target="_blank"
+                class="body-md"
+                >↗ Customer Store</a
+              >
+              <a
+                href="https://ekart-admin-dashboard.pages.dev/auth/login?email=admin123@gmail.com&password=admin123"
+                target="_blank"
+                class="body-md"
+                >↗ Admin Dashboard</a
+              >
+              <a
+                href="https://ekart-backend-9y0c.onrender.com/health"
+                target="_blank"
+                class="body-md"
+                >↗ API Health</a
+              >
+            </div>
+          </div>
+          <div class="card-content">
+            <h3 class="body-md-strong mb-md">Source Code</h3>
+            <div class="flex flex-col gap-sm">
+              <a
+                href="https://github.com/sn0914r/ekart-frontend"
+                target="_blank"
+                class="body-md"
+                >↗ Frontend Repository</a
+              >
+              <a
+                href="https://github.com/sn0914r/ekart-backend"
+                target="_blank"
+                class="body-md"
+                >↗ Backend Repository</a
+              >
+              <a
+                href="https://github.com/sn0914r/ekart-admin-panel"
+                target="_blank"
+                class="body-md"
+                >↗ Admin Panel Repository</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screenshots -->
+      <section class="section">
+        <h2 class="display-md mb-2xl">Screenshots</h2>
+        <div class="grid grid-2">
+          <div class="screenshot-card">
+            <img
+              src="assets/screenshots/customer-view/home.webp"
+              alt="Home Page"
+            />
+            <div class="body-md-strong text-center">Home Page</div>
+          </div>
+          <div class="screenshot-card">
+            <img
+              src="assets/screenshots/customer-view/product-details.webp"
+              alt="Product Details"
+            />
+            <div class="body-md-strong text-center">Product Details</div>
+          </div>
+          <div class="screenshot-card">
+            <img
+              src="assets/screenshots/customer-view/cart.webp"
+              alt="Shopping Cart"
+            />
+            <div class="body-md-strong text-center">Shopping Cart</div>
+          </div>
+          <div class="screenshot-card">
+            <img
+              src="assets/screenshots/customer-view/payment.png"
+              alt="Checkout"
+            />
+            <div class="body-md-strong text-center">Checkout</div>
+          </div>
+          <div class="screenshot-card">
+            <img
+              src="assets/screenshots/customer-view/orders.webp"
+              alt="Orders"
+            />
+            <div class="body-md-strong text-center">Orders</div>
+          </div>
+          <div class="screenshot-card">
+            <img
+              src="assets/screenshots/admin-view/dashboard.png"
+              alt="Admin Dashboard"
+            />
+            <div class="body-md-strong text-center">Admin Dashboard</div>
+          </div>
+          <div class="screenshot-card">
+            <img
+              src="assets/screenshots/admin-view/products.png"
+              alt="Product Management"
+            />
+            <div class="body-md-strong text-center">Product Management</div>
+          </div>
+          <div class="screenshot-card">
+            <img
+              src="assets/screenshots/admin-view/analytics.png"
+              alt="Analytics"
+            />
+            <div class="body-md-strong text-center">Analytics</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tech Stack -->
+      <section class="section">
+        <h2 class="display-md mb-2xl">Tech Stack</h2>
+        <div class="grid grid-3">
+          <div class="card-content">
+            <h3 class="body-md-strong mb-sm">Frontend</h3>
+            <div>
+              <span class="badge">React</span><span class="badge">Vite</span
+              ><span class="badge">React Router</span>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3 class="body-md-strong mb-sm">State & Data</h3>
+            <div>
+              <span class="badge">Zustand</span
+              ><span class="badge">TanStack Query</span>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3 class="body-md-strong mb-sm">Backend</h3>
+            <div>
+              <span class="badge">Node.js</span
+              ><span class="badge">Express.js</span>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3 class="body-md-strong mb-sm">Database</h3>
+            <div>
+              <span class="badge">MongoDB</span
+              ><span class="badge">Mongoose</span>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3 class="body-md-strong mb-sm">Security</h3>
+            <div>
+              <span class="badge">JWT</span><span class="badge">bcrypt</span>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3 class="body-md-strong mb-sm">Integrations</h3>
+            <div>
+              <span class="badge">Razorpay</span
+              ><span class="badge">Cloudinary</span
+              ><span class="badge">Nodemailer</span>
+            </div>
           </div>
         </div>
       </section>
@@ -208,171 +390,6 @@
             <div class="list-item">
               <span class="bullet">•</span
               ><span class="body-md">Authenticated API requests</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Screenshots -->
-      <section class="section">
-        <h2 class="display-md mb-2xl">Screenshots</h2>
-        <div class="grid grid-2">
-          <div class="screenshot-card">
-            <img
-              src="assets/screenshots/customer-view/home.webp"
-              alt="Home Page"
-            />
-            <div class="body-md-strong text-center">Home Page</div>
-          </div>
-          <div class="screenshot-card">
-            <img
-              src="assets/screenshots/customer-view/product-details.webp"
-              alt="Product Details"
-            />
-            <div class="body-md-strong text-center">Product Details</div>
-          </div>
-          <div class="screenshot-card">
-            <img
-              src="assets/screenshots/customer-view/cart.webp"
-              alt="Shopping Cart"
-            />
-            <div class="body-md-strong text-center">Shopping Cart</div>
-          </div>
-          <div class="screenshot-card">
-            <img
-              src="assets/screenshots/customer-view/payment.png"
-              alt="Checkout"
-            />
-            <div class="body-md-strong text-center">Checkout</div>
-          </div>
-          <div class="screenshot-card">
-            <img
-              src="assets/screenshots/customer-view/orders.webp"
-              alt="Orders"
-            />
-            <div class="body-md-strong text-center">Orders</div>
-          </div>
-          <div class="screenshot-card">
-            <img
-              src="assets/screenshots/admin-view/dashboard.webp"
-              alt="Admin Dashboard"
-            />
-            <div class="body-md-strong text-center">Admin Dashboard</div>
-          </div>
-          <div class="screenshot-card">
-            <img
-              src="assets/screenshots/admin-view/products.webp"
-              alt="Product Management"
-            />
-            <div class="body-md-strong text-center">Product Management</div>
-          </div>
-          <div class="screenshot-card">
-            <img
-              src="assets/screenshots/admin-view/analytics-dark.webp"
-              alt="Analytics"
-            />
-            <div class="body-md-strong text-center">Analytics</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Tech Stack -->
-      <section class="section">
-        <h2 class="display-md mb-2xl">Tech Stack</h2>
-        <div class="grid grid-3">
-          <div class="card-content">
-            <h3 class="body-md-strong mb-sm">Frontend</h3>
-            <div>
-              <span class="badge">React</span><span class="badge">Vite</span
-              ><span class="badge">React Router</span>
-            </div>
-          </div>
-          <div class="card-content">
-            <h3 class="body-md-strong mb-sm">State & Data</h3>
-            <div>
-              <span class="badge">Zustand</span
-              ><span class="badge">TanStack Query</span>
-            </div>
-          </div>
-          <div class="card-content">
-            <h3 class="body-md-strong mb-sm">Backend</h3>
-            <div>
-              <span class="badge">Node.js</span
-              ><span class="badge">Express.js</span>
-            </div>
-          </div>
-          <div class="card-content">
-            <h3 class="body-md-strong mb-sm">Database</h3>
-            <div>
-              <span class="badge">MongoDB</span
-              ><span class="badge">Mongoose</span>
-            </div>
-          </div>
-          <div class="card-content">
-            <h3 class="body-md-strong mb-sm">Security</h3>
-            <div>
-              <span class="badge">JWT</span><span class="badge">bcrypt</span>
-            </div>
-          </div>
-          <div class="card-content">
-            <h3 class="body-md-strong mb-sm">Integrations</h3>
-            <div>
-              <span class="badge">Razorpay</span
-              ><span class="badge">Cloudinary</span
-              ><span class="badge">Nodemailer</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Project Links -->
-      <section class="section">
-        <h2 class="display-md mb-2xl">Project Links</h2>
-        <div class="grid grid-2">
-          <div class="card-content">
-            <h3 class="body-md-strong mb-md">Live Applications</h3>
-            <div class="flex flex-col gap-sm">
-              <a
-                href="https://ekart-frontend.pages.dev/auth/login?email=user123@gmail.com&password=user123"
-                target="_blank"
-                class="body-md"
-                >↗ Customer Store</a
-              >
-              <a
-                href="https://ekart-admin-dashboard.pages.dev/auth/login?email=admin123@gmail.com&password=admin123"
-                target="_blank"
-                class="body-md"
-                >↗ Admin Dashboard</a
-              >
-              <a
-                href="https://ekart-backend-9y0c.onrender.com/health"
-                target="_blank"
-                class="body-md"
-                >↗ API Health</a
-              >
-            </div>
-          </div>
-          <div class="card-content">
-            <h3 class="body-md-strong mb-md">Source Code</h3>
-            <div class="flex flex-col gap-sm">
-              <a
-                href="https://github.com/sn0914r/ekart-frontend"
-                target="_blank"
-                class="body-md"
-                >↗ Frontend Repository</a
-              >
-              <a
-                href="https://github.com/sn0914r/ekart-backend"
-                target="_blank"
-                class="body-md"
-                >↗ Backend Repository</a
-              >
-              <a
-                href="https://github.com/sn0914r/ekart-admin-panel"
-                target="_blank"
-                class="body-md"
-                >↗ Admin Panel Repository</a
-              >
             </div>
           </div>
         </div>
