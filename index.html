@@ -9,6 +9,8 @@
       content="A complete ecommerce system featuring a customer storefront, admin dashboard, secure payments, inventory management, and order processing."
     />
 
+    <link rel="stylesheet" href="./assets/styles.css" />
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -35,23 +37,26 @@
       </div>
     </nav>
 
-    <div class="container">
-      <!-- Hero Section -->
-      <header class="hero-band">
-        <h1 class="display-xl">eKart</h1>
-        <div class="display-md mb-xl" style="color: var(--body-strong)">
-          Full-Stack Ecommerce Ecosystem
-        </div>
-        
-        <div class="mb-2xl flex gap-md items-center code" style="color: var(--mute); flex-wrap: wrap;">
-          <span>Customer Store</span>
-          <span style="color: var(--hairline)">•</span>
-          <span>Admin Dashboard</span>
-          <span style="color: var(--hairline)">•</span>
-          <span>Backend API</span>
-        </div>
+    <main class="hero-wrapper animate-on-scroll">
+      <div class="container" style="max-width: 700px; width: 100%;">
+        <!-- Hero Section -->
+        <header class="hero-band" style="padding: 0;">
+          <div class="text-center">
+            <h1 class="display-xl">eKart</h1>
+            <div class="display-md mb-xl" style="color: var(--body-strong)">
+              Full-Stack Ecommerce Ecosystem
+            </div>
+            
+            <div class="mb-2xl flex gap-md items-center code" style="color: var(--mute); flex-wrap: wrap; justify-content: center;">
+              <span>Customer Store</span>
+              <span style="color: var(--hairline)">•</span>
+              <span>Admin Dashboard</span>
+              <span style="color: var(--hairline)">•</span>
+              <span>API Docs</span>
+            </div>
+          </div>
 
-        <div class="flex gap-md mb-md" style="flex-wrap: wrap">
+        <div class="flex gap-md mb-md" style="flex-wrap: wrap; justify-content: center;">
           <a
             href="https://ekart-frontend.pages.dev/auth/login?email=user123@gmail.com&password=user123"
             target="_blank"
@@ -65,14 +70,14 @@
             ><i class="bi bi-gear" style="margin-right: 8px"></i> Open Admin Panel</a
           >
           <a
-            href="https://ekart-backend-9y0c.onrender.com/health"
+            href="https://ekart-backend-s0x7.onrender.com/docs"
             target="_blank"
             class="button-secondary-ghost"
-            ><i class="bi bi-link-45deg" style="margin-right: 8px"></i> Backend API</a
+            ><i class="bi bi-link-45deg" style="margin-right: 8px"></i> API Docs</a
           >
         </div>
         
-        <div class="flex gap-md mb-3xl" style="flex-wrap: wrap">
+        <div class="flex gap-md mb-3xl" style="flex-wrap: wrap; justify-content: center;">
           <a
             href="https://github.com/sn0914r/ekart-frontend"
             target="_blank"
@@ -93,309 +98,13 @@
           >
         </div>
 
-        <div class="mt-xl">
-          <a href="#about" class="body-md flex items-center" style="color: var(--mute); transition: color 0.2s; display: inline-flex;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--mute)'">
-            <i class="bi bi-arrow-down" style="margin-right: 8px;"></i> Learn More About The Project
+        <div class="mt-xl text-center">
+          <a href="about.html" class="body-md flex items-center" style="color: var(--mute); transition: color 0.2s; display: inline-flex;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--mute)'">
+            View Project Details <i class="bi bi-arrow-right" style="margin-left: 8px;"></i>
           </a>
-        </div>
-      </header>
-
-      <!-- About eKart -->
-      <section class="section" id="about">
-        <h2 class="display-md mb-2xl">About eKart</h2>
-        <p class="body-lg mb-xl">
-          eKart is a full-stack ecommerce platform built as three independent
-          applications working together through a centralized backend API.
-        </p>
-        <div class="grid grid-3">
-          <div class="card-content">
-            <h3 class="body-md-strong mb-sm">Customer Store</h3>
-            <p class="body-sm">
-              Browse products, manage carts and wishlists, securely place
-              orders, and track purchases.
-            </p>
-          </div>
-          <div class="card-content">
-            <h3 class="body-md-strong mb-sm">Admin Dashboard</h3>
-            <p class="body-sm">
-              Manage products, inventory, orders, and business analytics from a
-              dedicated administration panel.
-            </p>
-          </div>
-          <div class="card-content">
-            <h3 class="body-md-strong mb-sm">Backend API</h3>
-            <p class="body-sm">
-              Handles authentication, payments, business logic, database
-              operations, and third-party integrations.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Project Links -->
-      <section class="section">
-        <h2 class="display-md mb-2xl">Project Links</h2>
-        <div class="grid grid-2">
-          <div class="card-content">
-            <h3 class="body-md-strong mb-md">Live Applications</h3>
-            <div class="flex flex-col gap-sm">
-              <a
-                href="https://ekart-frontend.pages.dev/auth/login?email=user123@gmail.com&password=user123"
-                target="_blank"
-                class="body-md"
-                >↗ Customer Store</a
-              >
-              <a
-                href="https://ekart-admin-dashboard.pages.dev/auth/login?email=admin123@gmail.com&password=admin123"
-                target="_blank"
-                class="body-md"
-                >↗ Admin Dashboard</a
-              >
-              <a
-                href="https://ekart-backend-9y0c.onrender.com/health"
-                target="_blank"
-                class="body-md"
-                >↗ API Health</a
-              >
-            </div>
-          </div>
-          <div class="card-content">
-            <h3 class="body-md-strong mb-md">Source Code</h3>
-            <div class="flex flex-col gap-sm">
-              <a
-                href="https://github.com/sn0914r/ekart-frontend"
-                target="_blank"
-                class="body-md"
-                >↗ Frontend Repository</a
-              >
-              <a
-                href="https://github.com/sn0914r/ekart-backend"
-                target="_blank"
-                class="body-md"
-                >↗ Backend Repository</a
-              >
-              <a
-                href="https://github.com/sn0914r/ekart-admin-panel"
-                target="_blank"
-                class="body-md"
-                >↗ Admin Panel Repository</a
-              >
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Screenshots -->
-      <section class="section">
-        <h2 class="display-md mb-2xl">Screenshots</h2>
-        <div class="grid grid-2">
-          <div class="screenshot-card">
-            <img
-              src="assets/screenshots/customer-view/home.webp"
-              alt="Home Page"
-            />
-            <div class="body-md-strong text-center">Home Page</div>
-          </div>
-          <div class="screenshot-card">
-            <img
-              src="assets/screenshots/customer-view/product-details.webp"
-              alt="Product Details"
-            />
-            <div class="body-md-strong text-center">Product Details</div>
-          </div>
-          <div class="screenshot-card">
-            <img
-              src="assets/screenshots/customer-view/cart.webp"
-              alt="Shopping Cart"
-            />
-            <div class="body-md-strong text-center">Shopping Cart</div>
-          </div>
-          <div class="screenshot-card">
-            <img
-              src="assets/screenshots/customer-view/payment.png"
-              alt="Checkout"
-            />
-            <div class="body-md-strong text-center">Checkout</div>
-          </div>
-          <div class="screenshot-card">
-            <img
-              src="assets/screenshots/customer-view/orders.webp"
-              alt="Orders"
-            />
-            <div class="body-md-strong text-center">Orders</div>
-          </div>
-          <div class="screenshot-card">
-            <img
-              src="assets/screenshots/admin-view/dashboard.png"
-              alt="Admin Dashboard"
-            />
-            <div class="body-md-strong text-center">Admin Dashboard</div>
-          </div>
-          <div class="screenshot-card">
-            <img
-              src="assets/screenshots/admin-view/products.png"
-              alt="Product Management"
-            />
-            <div class="body-md-strong text-center">Product Management</div>
-          </div>
-          <div class="screenshot-card">
-            <img
-              src="assets/screenshots/admin-view/analytics.png"
-              alt="Analytics"
-            />
-            <div class="body-md-strong text-center">Analytics</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Tech Stack -->
-      <section class="section">
-        <h2 class="display-md mb-2xl">Tech Stack</h2>
-        <div class="grid grid-3">
-          <div class="card-content">
-            <h3 class="body-md-strong mb-sm">Frontend</h3>
-            <div>
-              <span class="badge">React</span><span class="badge">Vite</span
-              ><span class="badge">React Router</span>
-            </div>
-          </div>
-          <div class="card-content">
-            <h3 class="body-md-strong mb-sm">State & Data</h3>
-            <div>
-              <span class="badge">Zustand</span
-              ><span class="badge">TanStack Query</span>
-            </div>
-          </div>
-          <div class="card-content">
-            <h3 class="body-md-strong mb-sm">Backend</h3>
-            <div>
-              <span class="badge">Node.js</span
-              ><span class="badge">Express.js</span>
-            </div>
-          </div>
-          <div class="card-content">
-            <h3 class="body-md-strong mb-sm">Database</h3>
-            <div>
-              <span class="badge">MongoDB</span
-              ><span class="badge">Mongoose</span>
-            </div>
-          </div>
-          <div class="card-content">
-            <h3 class="body-md-strong mb-sm">Security</h3>
-            <div>
-              <span class="badge">JWT</span><span class="badge">bcrypt</span>
-            </div>
-          </div>
-          <div class="card-content">
-            <h3 class="body-md-strong mb-sm">Integrations</h3>
-            <div>
-              <span class="badge">Razorpay</span
-              ><span class="badge">Cloudinary</span
-              ><span class="badge">Nodemailer</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Key Features -->
-      <section class="section">
-        <h2 class="display-md mb-2xl">Key Features</h2>
-        <div class="grid grid-3">
-          <div class="card-content">
-            <h3 class="body-md-strong mb-md">Customer Experience</h3>
-            <div class="list-item">
-              <span class="bullet">•</span
-              ><span class="body-md"
-                >Product search, filtering, and sorting</span
-              >
-            </div>
-            <div class="list-item">
-              <span class="bullet">•</span
-              ><span class="body-md">Product details and image galleries</span>
-            </div>
-            <div class="list-item">
-              <span class="bullet">•</span
-              ><span class="body-md">Shopping cart and wishlist</span>
-            </div>
-            <div class="list-item">
-              <span class="bullet">•</span
-              ><span class="body-md">Secure checkout experience</span>
-            </div>
-            <div class="list-item">
-              <span class="bullet">•</span
-              ><span class="body-md">Razorpay payment integration</span>
-            </div>
-            <div class="list-item">
-              <span class="bullet">•</span
-              ><span class="body-md">Order history and tracking</span>
-            </div>
-            <div class="list-item">
-              <span class="bullet">•</span
-              ><span class="body-md">Responsive user interface</span>
-            </div>
-          </div>
-          <div class="card-content">
-            <h3 class="body-md-strong mb-md">Admin Operations</h3>
-            <div class="list-item">
-              <span class="bullet">•</span
-              ><span class="body-md">Product management</span>
-            </div>
-            <div class="list-item">
-              <span class="bullet">•</span
-              ><span class="body-md">Category management</span>
-            </div>
-            <div class="list-item">
-              <span class="bullet">•</span
-              ><span class="body-md">Inventory tracking</span>
-            </div>
-            <div class="list-item">
-              <span class="bullet">•</span
-              ><span class="body-md">Order management</span>
-            </div>
-            <div class="list-item">
-              <span class="bullet">•</span
-              ><span class="body-md">Revenue analytics</span>
-            </div>
-            <div class="list-item">
-              <span class="bullet">•</span
-              ><span class="body-md">Sales insights</span>
-            </div>
-            <div class="list-item">
-              <span class="bullet">•</span
-              ><span class="body-md">Role-Based Access Control (RBAC)</span>
-            </div>
-          </div>
-          <div class="card-content">
-            <h3 class="body-md-strong mb-md">Security</h3>
-            <div class="list-item">
-              <span class="bullet">•</span
-              ><span class="body-md">JWT Authentication</span>
-            </div>
-            <div class="list-item">
-              <span class="bullet">•</span
-              ><span class="body-md">Access & Refresh Token flow</span>
-            </div>
-            <div class="list-item">
-              <span class="bullet">•</span
-              ><span class="body-md">Protected routes</span>
-            </div>
-            <div class="list-item">
-              <span class="bullet">•</span
-              ><span class="body-md">Secure password hashing</span>
-            </div>
-            <div class="list-item">
-              <span class="bullet">•</span
-              ><span class="body-md">Server-side payment verification</span>
-            </div>
-            <div class="list-item">
-              <span class="bullet">•</span
-              ><span class="body-md">Authenticated API requests</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    </div>
+        </header>
+      </div>
+    </main>
 
     <footer>
       <div class="container flex justify-between items-center">
@@ -404,22 +113,14 @@
         </div>
         <div class="body-sm flex gap-md items-center">
           <a
-            href="https://github.com/sn0914r"
+            href="https://sivananda.is-a.dev"
             target="_blank"
             style="color: var(--ink)"
-            >GitHub</a
-          >
-          <span style="color: var(--mute)">|</span>
-          <a
-            href="https://www.linkedin.com/in/sivananda-reddy-yerragudi-630076337/"
-            target="_blank"
-            style="color: var(--ink)"
-            >LinkedIn</a
+            >Portfolio</a
           >
         </div>
       </div>
     </footer>
-
-    <script src="./assets/index.js" defer></script>
+    <script src="./assets/animations.js"></script>
   </body>
 </html>
