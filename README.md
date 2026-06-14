@@ -6,19 +6,19 @@ Full-stack ecommerce platform consisting of a customer-facing frontend, an admin
 
 ## System Architecture
 
-The eKart ecosystem is built using a decoupled architecture where the frontend and admin panels interact with a centralized backend API.
+The eKart ecosystem is built using a decoupled architecture where the frontend and admin panel interact with a centralized backend API.
 
 ### eKart Frontend
 
-Customer-facing ecommerce application where users can browse the product catalog, manage their cart/wishlist, and complete purchases using integrated payment gateways.
+Customer-facing ecommerce application where users can browse the product catalog, manage their cart and wishlist, and complete purchases via Razorpay.
 
 ### eKart Admin Panel
 
-Administrative dashboard designed for managing the store's operations, including product inventory, order fulfillment, and business analytics.
+Administrative dashboard for managing store operations — product inventory, order fulfillment, shipping status updates, and business analytics.
 
 ### eKart Backend
 
-REST API backend that handles core business logic, user authentication, database persistence, and external service integrations for payments and image storage.
+REST API backend handling core business logic, JWT authentication, database persistence, and integrations for payments, image storage, and email notifications. Containerized with Docker and documented via OpenAPI/Scalar.
 
 ---
 
@@ -34,23 +34,42 @@ REST API backend that handles core business logic, user authentication, database
 
 ## Live Deployments
 
-- **Customer Frontend:** [ekart-frontend.pages.dev](https://ekart-frontend.pages.dev/)
-- **Admin Dashboard:** [ekart-admin-dashboard.pages.dev](https://ekart-admin-dashboard.pages.dev/)
-- **Backend API:** [ekart-backend-9y0c.onrender.com](https://ekart-backend-9y0c.onrender.com/health)
+| Service           | URL                                                                                                                              |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Customer Frontend | [ekart-frontend.pages.dev](https://ekart-frontend.pages.dev/auth/login?email=user123@gmail.com&password=user123)                 |
+| Admin Dashboard   | [ekart-admin-dashboard.pages.dev](https://ekart-admin-dashboard.pages.dev/auth/login?email=admin123@gmail.com&password=admin123) |
+| API Documentation | [ekart-backend-s0x7.onrender.com/docs](https://ekart-backend-s0x7.onrender.com/docs)                                             |
 
 ---
 
 ## Core Features
 
-- JWT authentication with access and refresh token flow
-- Role-Based Access Control (RBAC) for administrative access
-- Full product catalog with advanced filtering and search
-- Persistent shopping cart and user wishlist
-- Razorpay payment gateway integration
-- Server-side order management and status tracking
-- Inventory tracking with automated stock updates
-- Admin analytics and revenue tracking
-- Protected routes and secure API endpoints
+### Customer
+
+- Product catalog with search, filtering by category/price, and sorting
+- Persistent cart and wishlist across sessions
+- Checkout flow integrated with Razorpay payment gateway
+- Snapshot-based order items — price and product details are captured at time of purchase, unaffected by future product changes
+- Order history with status tracking and email notifications
+
+### Admin
+
+- Product and category CRUD with multi-image upload via Cloudinary
+- Inventory tracking with low stock alerts
+- Shipping status management (Pending → Packed → Shipped → Delivered)
+- Revenue analytics with monthly trends and top-product rankings
+- Role-based access control enforced on all admin routes
+
+### Security & Reliability
+
+- JWT access + refresh tokens with HTTP-only cookies
+- Server-side pricing — final price is recalculated from the database on order creation, client values are never trusted
+- Server-side Razorpay signature verification before order is persisted
+- Idempotency checks on payment routes to prevent duplicate charges
+- Transaction-safe stock reduction with automatic reversal on order cancellation
+- Rate limiting on sensitive endpoints
+- Request validation via Joi, security headers via Helmet
+- Password hashing with bcrypt
 
 ---
 
@@ -64,101 +83,104 @@ REST API backend that handles core business logic, user authentication, database
 
 ### Order & Payment Flow
 
-- Users initiate the checkout process from the cart.
-- The backend calculates final pricing based on current database records to prevent client-side price tampering.
+- Users initiate checkout from the cart.
+- Backend recalculates final pricing from the database to prevent client-side price tampering.
 - A Razorpay order is created server-side using the calculated amount.
-- Upon successful payment on the frontend, the payment signature is transmitted to the backend.
-- The backend verifies the signature using the Razorpay secret before persisting the order and reducing product stock.
+- On successful payment, the signature is sent to the backend for verification.
+- Only after signature verification does the backend persist the order, reduce stock, and trigger a confirmation email via Nodemailer.
+- Order items are stored as snapshots — product name, image, price, and variant are frozen at purchase time.
+
+### Order Lifecycle
+
+- **Order Status** (user/system controlled): `PENDING → CONFIRMED → CANCELLED`
+- **Shipping Status** (admin controlled): `PENDING → PACKED → SHIPPED → DELIVERED → CANCELLED`
 
 ### Admin Workflow
 
 - Admins log in to the dedicated dashboard (requires `admin` role).
 - Product management includes multi-image uploads via Cloudinary.
-- Inventory is updated in real-time as orders are processed.
-- Order statuses (Pending, Processing, Shipped, Delivered) are managed through the admin interface.
+- Inventory is updated automatically as orders are confirmed.
+- Shipping status is updated manually through the admin interface.
+- Email notifications are sent to users on order confirmation and shipping status changes.
 
 ---
 
 ## Tech Stack
 
-### Frontend Applications
+### Frontend
 
-- React
-- Vite
+- React, Vite, React Router
 - Zustand (State Management)
-- TanStack Query (Data Fetching)
-- React Router (Routing)
+- TanStack Query (Data Fetching & Caching)
 - Bootstrap & Emotion (Styling)
 
 ### Backend
 
-- Node.js
-- Express.js
-- MongoDB
-- Mongoose (ODM)
-- Joi (Request Validation)
+- Node.js, Express.js
+- MongoDB, Mongoose
+- Redis (Caching & Rate Limiting)
+- Joi (Validation), Helmet (Security Headers)
+- Nodemailer (Email Notifications)
 
 ### Security & Payments
 
 - JSON Web Tokens (JWT)
 - bcrypt (Password Hashing)
-- Razorpay (Payments)
+- Razorpay (Payment Gateway)
 
-### Infrastructure
+### Infrastructure & Tooling
 
+- Docker (Containerization)
 - Cloudinary (Image Hosting)
+- OpenAPI/Scalar (API Documentation)
 - Render (Backend Hosting)
 - Cloudflare Pages (Frontend Hosting)
 
 ---
 
-## Project Structure
-
-The eKart ecosystem is split into three independent repositories:
-
-- `eKart-frontend` — Customer-facing ecommerce application
-- `eKart-admin-panel` — Admin dashboard for store management
-- `eKart-backend` — REST API backend handling business logic, authentication, payments, and data persistence
-
-All applications communicate through the centralized backend API.
-
 ## Environment Setup
 
 ### Backend Setup
 
-Requires variables for MongoDB URI, JWT secrets, Cloudinary credentials, and Razorpay API keys.
+Requires variables for MongoDB URI, JWT secrets, Cloudinary credentials, Razorpay API keys, and Nodemailer credentials.
 
-1. Install dependencies: `npm install`
-2. Configure `.env` based on `.env.example`.
-3. Start server: `npm run dev`
+```bash
+npm install
+cp .env.example .env   # configure your environment variables
+npm run dev
+```
+
+Or run with Docker:
+
+```bash
+docker build -t ekart-backend .
+docker run --env-file .env -p 3000:3000 ekart-backend
+```
 
 ### Frontend & Admin Setup
 
-Requires the backend API URL and Razorpay public key (for frontend).
+Requires the backend API URL. Frontend also requires the Razorpay public key.
 
-1. Install dependencies: `npm install`
-2. Configure `.env` with `VITE_API_URL`.
-3. Start development server: `npm run dev`
-
----
-
-## Security
-
-The system implements several critical security measures to ensure data integrity and secure transactions:
-
-- **JWT Authentication:** All sensitive operations require a valid JWT.
-- **Refresh Token Flow:** Uses HTTP-only cookies to mitigate XSS risks for session persistence.
-- **RBAC:** Strictly enforces administrative permissions on the backend for all `/admin` routes.
-- **Server-Side Pricing:** Product pricing is never trusted from the client; it is recalculated on the server during order creation.
-- **Secure Payments:** Razorpay orders are generated server-side, and payment signatures are verified before any order is finalized or inventory is updated.
-- **Password Hashing:** All user passwords are salted and hashed using `bcrypt`.
+```bash
+npm install
+cp .env.example .env   # set VITE_API_URL
+npm run dev
+```
 
 ---
 
-## Documentation
+## API Documentation
 
-For detailed information about each part of the system:
+Interactive API docs are available at `/docs` (powered by OpenAPI/Scalar) when the backend is running.
 
-- [eKart Frontend Documentation](https://github.com/sn0914r/ekart-frontend)
-- [eKart Admin Panel Documentation](https://github.com/sn0914r/ekart-admin-panel)
-- [eKart Backend Documentation](https://github.com/sn0914r/ekart-backend)
+- [Live API Docs](https://ekart-backend-s0x7.onrender.com/docs)
+
+---
+
+## Security Notes
+
+- All sensitive operations require a valid JWT access token.
+- HTTP-only cookies are used for refresh tokens to mitigate XSS risks.
+- Admin routes are protected by RBAC enforced strictly on the backend — role is never trusted from the client.
+- Razorpay orders are generated server-side; payment signatures are verified before any order is finalized or stock is updated.
+- Product pricing is recalculated server-side during order creation — client-submitted prices are ignored.
