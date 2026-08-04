@@ -87,6 +87,33 @@
         </div>
       </section>
 
+      <!-- Architecture -->
+      <section class="section animate-on-scroll" id="architecture">
+        <h2 class="display-md mb-2xl">Architecture</h2>
+        <div class="mb-xl">
+          <img
+            src="assets/screenshots/architecture.png"
+            alt="Project Architecture"
+            style="
+              width: 100%;
+              border-radius: 12px;
+              border: 1px solid var(--border);
+              cursor: pointer;
+            "
+            onclick="openModal(this.src)"
+          />
+        </div>
+        <p class="body-lg mb-md">
+          The eKart Backend serves as the central application layer, receiving
+          requests from both the customer-facing frontend and the admin
+          dashboard. It persists application data in MongoDB, uses Redis for
+          caching and queue management, stores product images in Cloudinary, and
+          delegates all payment operations to a standalone Payment Orchestration
+          Engine. Background tasks such as email delivery are processed
+          asynchronously by a dedicated BullMQ worker.
+        </p>
+      </section>
+
       <!-- Project Links -->
       <section class="section animate-on-scroll">
         <h2 class="display-md mb-2xl">Project Links</h2>
@@ -146,7 +173,7 @@
         <div class="grid grid-2">
           <div class="screenshot-card">
             <img
-              src="assets/screenshots/customer-view/home.webp"
+              src="assets/screenshots/customer-view/home.png"
               alt="Home Page"
             />
             <div class="body-md-strong text-center">Home Page</div>
@@ -181,10 +208,10 @@
           </div>
           <div class="screenshot-card">
             <img
-              src="assets/screenshots/admin-view/dashboard.png"
-              alt="Admin Dashboard"
+              src="assets/screenshots/admin-view/orders.png"
+              alt="Order Management"
             />
-            <div class="body-md-strong text-center">Admin Dashboard</div>
+            <div class="body-md-strong text-center">Order Management</div>
           </div>
           <div class="screenshot-card">
             <img
@@ -210,14 +237,8 @@
           <div class="card-content animate-on-scroll">
             <h3 class="body-md-strong mb-sm">Frontend</h3>
             <div>
-              <span class="badge">React</span><span class="badge">Vite</span
-              ><span class="badge">React Router</span>
-            </div>
-          </div>
-          <div class="card-content animate-on-scroll">
-            <h3 class="body-md-strong mb-sm">State & Data</h3>
-            <div>
-              <span class="badge">Zustand</span
+              <span class="badge">React</span
+              ><span class="badge">Zustand</span
               ><span class="badge">TanStack Query</span>
             </div>
           </div>
@@ -225,36 +246,30 @@
             <h3 class="body-md-strong mb-sm">Backend</h3>
             <div>
               <span class="badge">Node.js</span
-              ><span class="badge">Express.js</span>
+              ><span class="badge">Express.js</span
+              ><span class="badge">BullMQ</span>
             </div>
           </div>
           <div class="card-content animate-on-scroll">
             <h3 class="body-md-strong mb-sm">Database</h3>
             <div>
               <span class="badge">MongoDB</span
-              ><span class="badge">Mongoose</span
               ><span class="badge">Redis</span>
-            </div>
-          </div>
-          <div class="card-content animate-on-scroll">
-            <h3 class="body-md-strong mb-sm">Security</h3>
-            <div>
-              <span class="badge">JWT</span><span class="badge">bcrypt</span>
             </div>
           </div>
           <div class="card-content animate-on-scroll">
             <h3 class="body-md-strong mb-sm">Integrations</h3>
             <div>
-              <span class="badge">Razorpay</span
-              ><span class="badge">Cloudinary</span
-              ><span class="badge">Nodemailer</span>
+              <span class="badge">Payment Orchestration Engine</span
+              ><span class="badge">Email Worker Service</span
+              ><span class="badge">Cloudinary</span>
             </div>
           </div>
           <div class="card-content animate-on-scroll">
             <h3 class="body-md-strong mb-sm">Tools</h3>
             <div>
               <span class="badge">Docker</span
-              ><span class="badge">OpenAPI/Scalar</span>
+              ><span class="badge">OpenAPI / Scalar</span>
             </div>
           </div>
         </div>
@@ -287,7 +302,8 @@
             <div class="list-item">
               <span class="bullet">•</span
               ><span class="body-md"
-                >Checkout flow integrated with Razorpay payment gateway</span
+                >Checkout flow integrated with standalone Payment Orchestration
+                Engine</span
               >
             </div>
             <div class="list-item">
@@ -299,8 +315,8 @@
             <div class="list-item">
               <span class="bullet">•</span
               ><span class="body-md"
-                >Email notifications via Nodemailer for order
-                confirmations</span
+                >Email notifications via Nodemailer for order confirmations,
+                processed asynchronously through a BullMQ messaging queue</span
               >
             </div>
           </div>
@@ -350,8 +366,8 @@
             <div class="list-item">
               <span class="bullet">•</span
               ><span class="body-md"
-                >Server-side Razorpay signature verification (no
-                client-trust)</span
+                >Secure webhook verification with Payment Orchestration Engine
+                (no client-trust)</span
               >
             </div>
             <div class="list-item">
@@ -386,6 +402,35 @@
               >
             </div>
           </div>
+          <div class="card-content animate-on-scroll">
+            <h3 class="body-md-strong mb-md">Backend & Infrastructure</h3>
+            <div class="list-item">
+              <span class="bullet">•</span
+              ><span class="body-md">Modular domain-driven architecture</span>
+            </div>
+            <div class="list-item">
+              <span class="bullet">•</span
+              ><span class="body-md"
+                >Asynchronous email processing with BullMQ workers</span
+              >
+            </div>
+            <div class="list-item">
+              <span class="bullet">•</span
+              ><span class="body-md"
+                >Redis-powered caching and API rate limiting</span
+              >
+            </div>
+            <div class="list-item">
+              <span class="bullet">•</span
+              ><span class="body-md">Dockerized deployment with Compose</span>
+            </div>
+            <div class="list-item">
+              <span class="bullet">•</span
+              ><span class="body-md"
+                >Interactive API documentation via OpenAPI/Swagger</span
+              >
+            </div>
+          </div>
         </div>
       </section>
     </main>
@@ -405,6 +450,22 @@
         </div>
       </div>
     </footer>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal" onclick="closeModal()">
+      <span class="image-modal-close" onclick="closeModal()">&times;</span>
+      <img class="image-modal-content" id="modalImage">
+    </div>
+
+    <script>
+      function openModal(src) {
+        document.getElementById("imageModal").classList.add("show");
+        document.getElementById("modalImage").src = src;
+      }
+      function closeModal() {
+        document.getElementById("imageModal").classList.remove("show");
+      }
+    </script>
     <script src="./assets/animations.js"></script>
   </body>
 </html>
